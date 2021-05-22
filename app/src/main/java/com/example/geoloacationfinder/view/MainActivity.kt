@@ -63,12 +63,14 @@ class MainActivity : AppCompatActivity() {
 //        }
 
         //TextView Animation
-//        startAnimation()
+        startAnimation()
 
         viewModel.liveData.observe(this, { list ->
             if(list.isNotEmpty()){
                 Log.d("TAG_I", list[0].toString())
             }
+            else
+                Log.d("TAG_I", "Null list")
             placeAdapter.updatePlaces(list)
         })
 
@@ -140,11 +142,11 @@ class MainActivity : AppCompatActivity() {
 //        editor.apply()
 //    }
 
-    //TextView Animation
-//    private fun startAnimation() {
-//        val animation: Animation = AnimationUtils.loadAnimation(this, R.anim.anim);
-//        loc_textview.startAnimation(animation)
-//    }
+//    TextView Animation
+    private fun startAnimation() {
+        val animation: Animation = AnimationUtils.loadAnimation(this, R.anim.anim);
+        loc_textview.startAnimation(animation)
+    }
 
     private fun showMessage(message: String){
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
@@ -232,10 +234,11 @@ class MainActivity : AppCompatActivity() {
             }
         )
 
-    private fun checker(): Boolean = this::loc.isInitialized
+    private fun checker(): Boolean = this::loc.isInitialized && this::typ.isInitialized
 
     private fun makeApiCall() {
         if(checker()) {
+            Log.d("TAG_1", "sending ${loc.toString()}, $typ")
             viewModel.getPlacesNearMe(loc, typ)
         }
     }

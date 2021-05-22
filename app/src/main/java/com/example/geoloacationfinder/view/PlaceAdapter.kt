@@ -31,8 +31,7 @@ class PlaceAdapter(private var plList: List<Result>):
               Log.d("TAG_NS", "${it.name}, ${it.vicinity}")
                 name_view_layout.text = it.name
                 area_view_layout.text = it.vicinity
-                openhrs_layout.text = "OpenHrs:  ${it.opening_hours}"
-                rating_view.text = it.rating.toString()
+                rating_view.text = "Rating: ${it.rating}"
             }
         }
     }

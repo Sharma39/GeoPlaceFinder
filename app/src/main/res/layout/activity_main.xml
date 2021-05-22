@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/view_main"
-    android:background="#91C2F3"
+    android:background="#3A3B3C"
     tools:context=".view.MainActivity">
 
     <TextView
@@ -14,7 +14,7 @@
         android:layout_height="wrap_content"
         android:text="Your Location"
         android:textSize="20dp"
-        android:textColor="#3E3B3B"
+        android:textColor="#F6F0F0"
         android:maxLines="2"
         android:fontFamily="@font/akayakanadaka_regular"
         android:layout_margin="10dp"

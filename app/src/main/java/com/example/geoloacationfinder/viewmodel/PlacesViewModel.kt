@@ -34,17 +34,17 @@ class PlacesViewModel: ViewModel() {
                 Log.d("TAG_R","${pname}, ${location.toFormattedString()}")
                 val result = retrofit.makeApiCallAsync(
                     pname,
-                    "",
                     location.toFormattedString(),
                     10000
                 ).await()
 
+                Log.d("TAG_2", "Results size: ${result.results.size}")
                 liveData.postValue(result.results)
                 statusData.postValue(State.SUCCESS)
 
             } catch (e: Exception) {
                 //At this point an error occurred
-                Log.d("TAG_X", e.toString())
+                Log.d("TAG_E", e.message.toString())
                 statusData.postValue(State.ERROR)
             }
 
